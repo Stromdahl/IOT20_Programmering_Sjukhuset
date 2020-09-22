@@ -9,7 +9,6 @@ class Doctor {
 
     public String testPatient(Patient patient) {
         if(patient.isSick()) {
-            System.out.println("Dr. " + name + " tested patient " + patient.getName() + " positive for " + patient.getSickness() + ".");
             return patient.getSickness();
         } else {
             System.out.println("Dr. " + name + " tested patient " + patient.getName() + ", patient is healthy.");
