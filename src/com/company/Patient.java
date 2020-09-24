@@ -1,31 +1,40 @@
 package com.company;
 
-public class Patient {
-    String name;
-    String sickness;
-    boolean sick = true;
-    Patient(String name, String sickness){
-        this.name = name;
-        this.sickness = sickness;
-        if(sickness == null) {
-            sick = false;
-        }
-    }
-    Patient(String name) {
+public class Patient{
+    private String name;
+    private String sickness = "";
+
+    Patient(String name){
         this.name=name;
-        this.sick=false;
-    }
-    public String getName(String name){
-        return name;
-    }
-    public boolean isSick() {
-        return sick;
-    }
-    public String getSickness(String sickness){
-        return sickness;
-    }
-    public void takeMedication(Medicine medicine) {
-        medicine.g
     }
 
+    Patient(String name, String sickness){
+        this(name);
+        if(sickness != null){
+            this.sickness = sickness;
+        }
+    }
+
+    String getName(){
+        return name;
+    }
+
+    boolean isSick(){
+        if(sickness.equals("")){
+            return false;
+        }else{
+            return true;
+        }
+    }
+
+    String getSickness(){
+        return sickness;
+    }
+
+    void takeMedication(Medicine medicine){
+        String treatment = medicine.getTreatmentName();
+        if(sickness.equals(treatment)){
+            sickness = "";
+        }
+    }
 }
