@@ -2,7 +2,7 @@ package com.company;
 
 public class Patient{
     private String name;
-    private String sickness = "";
+    private String sickness = null;
 
     Patient(String name){
         this.name=name;
@@ -20,21 +20,17 @@ public class Patient{
     }
 
     boolean isSick(){
-        if(sickness.equals("")){
-            return false;
-        }else{
-            return true;
-        }
+        return sickness != null;
     }
 
     String getSickness(){
         return sickness;
     }
 
-    void takeMedication(Medicine medicine){
+    void takeMedication(Medicine medicine) {
         String treatment = medicine.getTreatmentName();
-        if(sickness.equals(treatment)){
-            sickness = "";
+        if (sickness != null && sickness.equals(treatment)) {
+            sickness = null;
         }
     }
 }
